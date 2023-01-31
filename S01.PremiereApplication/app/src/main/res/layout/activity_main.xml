@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -46,6 +47,19 @@
         app:layout_constraintBottom_toTopOf="@+id/btnSMS"
         app:layout_constraintEnd_toEndOf="@+id/btnSMS"
         app:layout_constraintStart_toStartOf="@+id/btnSMS" />
+
+    <EditText
+        android:id="@+id/edtPlayerName"
+        android:layout_width="225dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Name"
+        app:layout_constraintBottom_toTopOf="@+id/btnGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.6" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

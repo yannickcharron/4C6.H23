@@ -4,4 +4,11 @@
     <string name="btnPhone">Téléphoner</string>
     <string name="btnSMS">SMS</string>
     <string name="btnGame">Game</string>
+    <string name="btnValidate">Vérifier</string>
+    <string name="msgGood_luck">Bonne chance !!!</string>
+    <string name="msgGame">Bonjour %s, devinez le nombre</string>
+    <plurals name="nbTries">
+        <item quantity="one">%d essai</item>
+        <item quantity="other">%d essais</item>
+    </plurals>
 </resources>
