@@ -13,4 +13,9 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="CustomTheme" parent="Theme.MVVM">
+        <item name="android:background">@color/charcoal</item>
+        <item name="android:textColor">@color/little_white</item>
+    </style>
 </resources>
