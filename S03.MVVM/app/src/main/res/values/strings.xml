@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MVVM</string>
+    <string name="revolution">Révolution</string>
+    <string name="training">Training</string>
+    <string name="level">Level %d</string>
+    <string name="start">Start</string>
+    <string name="msg_recharge">Low Energy, please recharge</string>
+    <string name="recharge">Recharge (0.99 $)</string>
 </resources>
