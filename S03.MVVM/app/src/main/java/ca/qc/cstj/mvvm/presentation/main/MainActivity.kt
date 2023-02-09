@@ -23,39 +23,31 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //À chaque fois qu'un nouveau state est reçu
-        viewModel.pilotUiState.onEach {
-
+        viewModel.mainUiState.onEach {
             when(it) {
-                PilotUiState.Empty -> Unit
-                is PilotUiState.Error -> {
-
+                MainUiState.Empty -> Unit
+                is MainUiState.Error -> {
+                    Snackbar.make(binding.root, R.string.msg_recharge, Snackbar.LENGTH_INDEFINITE)
+                        .setAction(R.string.recharge) {
+                            viewModel.recharge()
+                        }.show()
                 }
-
-                PilotUiState.Loading -> {
-
+                MainUiState.Loading -> {
+                    binding.btnStart.isEnabled = false
                 }
-                is PilotUiState.Success -> {
+                is MainUiState.Success -> {
+                    with(binding) {
+                        txvPilotName.text = it.pilot.name
+                        txvLevel.text = getString(R.string.level, it.pilot.level)
+                        txvLife.text = it.pilot.life.toString()
+                        txvShield.text = it.pilot.shield.toString()
+                        txvEnergy.text = it.pilot.energy.toString()
+                        txvCube.text = it.pilot.cube.toString()
+                        btnStart.isEnabled = true
+                    }
 
                 }
             }
-
-//            if(it.isSuccess) {
-//                with(binding) {
-//                    txvPilotName.text = it.pilot.name
-//                    txvLevel.text = getString(R.string.level, it.pilot.level)
-//                    txvLife.text = it.pilot.life.toString()
-//                    txvShield.text = it.pilot.shield.toString()
-//                    txvEnergy.text = it.pilot.energy.toString()
-//                    txvCube.text = it.pilot.cube.toString()
-//                }
-//            } else  {
-//                Snackbar.make(binding.root, R.string.msg_recharge, Snackbar.LENGTH_INDEFINITE)
-//                    .setAction(R.string.recharge) {
-//                        viewModel.recharge()
-//                    }.show()
-//            }
-
-
         }.launchIn(lifecycleScope)
 
         binding.btnStart.setOnClickListener {
