@@ -29,7 +29,7 @@ class MainViewModel : ViewModel() {
             viewModelScope.launch {
                 //1. Changement d'état pour Loading (Animating)
                 _mainUiState.update {
-                    MainUiState.Loading
+                    MainUiState.Loading //Démarrer l'animation
                 }
 
                 //2. Attendre x milliseconds

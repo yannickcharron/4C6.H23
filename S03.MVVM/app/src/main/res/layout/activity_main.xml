@@ -220,6 +220,9 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         app:srcCompat="@drawable/rocket"
+        app:layout_constraintCircle="@id/imvPlanet"
+        app:layout_constraintCircleAngle="69"
+        app:layout_constraintCircleRadius="120dp"
         tools:layout_editor_absoluteX="63dp"
         tools:layout_editor_absoluteY="454dp" />
 
