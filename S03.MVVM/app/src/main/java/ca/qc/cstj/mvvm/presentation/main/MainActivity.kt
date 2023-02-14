@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import ca.qc.cstj.mvvm.R
 import ca.qc.cstj.mvvm.core.Constants
 import ca.qc.cstj.mvvm.databinding.ActivityMainBinding
+import ca.qc.cstj.mvvm.presentation.planet.PlanetsActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -68,6 +69,10 @@ class MainActivity : AppCompatActivity() {
             createAnimation()
 
             viewModel.fly(revolution, isTraining)
+        }
+
+        binding.btnPlanets.setOnClickListener {
+            startActivity(PlanetsActivity.newIntent(this))
         }
 
     }

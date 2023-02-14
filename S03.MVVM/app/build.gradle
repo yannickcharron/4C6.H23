@@ -46,6 +46,7 @@ dependencies {
 
     //ViewModel
     implementation 'androidx.activity:activity-ktx:1.6.1'
+    implementation 'androidx.core:core-ktx:+'
 
 
     testImplementation 'junit:junit:4.13.2'
