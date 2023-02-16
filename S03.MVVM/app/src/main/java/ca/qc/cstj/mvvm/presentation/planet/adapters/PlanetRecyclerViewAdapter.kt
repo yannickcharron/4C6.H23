@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ca.qc.cstj.mvvm.R
+import ca.qc.cstj.mvvm.core.loadFromResource
 import ca.qc.cstj.mvvm.databinding.ItemPlanetBinding
 import ca.qc.cstj.mvvm.domain.models.Planet
 
@@ -33,7 +34,9 @@ class PlanetRecyclerViewAdapter(var planets: List<Planet>)
             binding.txvPlanetName.text = planet.name
             binding.txvPlanetTemperature.text = String.format("%.2f", planet.temperature)
 
-            //TODO: Image
+            val imagePlanet = "planet${planet.image}"
+
+            binding.imvItemPlanet.loadFromResource(imagePlanet)
         }
     }
 }

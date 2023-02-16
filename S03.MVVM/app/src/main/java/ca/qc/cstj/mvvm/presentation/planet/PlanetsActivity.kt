@@ -28,8 +28,8 @@ class PlanetsActivity : AppCompatActivity() {
 
         planetRecyclerViewAdapter = PlanetRecyclerViewAdapter(listOf())
 
-        //binding.rcvPlanets.layoutManager = LinearLayoutManager(this)
-        binding.rcvPlanets.layoutManager = GridLayoutManager(this,2)
+        binding.rcvPlanets.layoutManager = LinearLayoutManager(this)
+        //binding.rcvPlanets.layoutManager = GridLayoutManager(this,2)
         binding.rcvPlanets.adapter = planetRecyclerViewAdapter
 
         //newState = le plus récent kayak (state) sur la rivière (flow)
