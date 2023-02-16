@@ -17,8 +17,14 @@ class PlanetsViewModel : ViewModel() {
     init {
         _planetsUiState.update {
             val planets = planetRepository.retrievePlanets()
-            PlanetsUiState.Success(planets)
+            return@update PlanetsUiState.Success(planets)
         }
+
+        // Le code lu ligne par ligne
+        // val planets = planetRepository.retrievePlanets()
+        // val state = PlanetsUiState.Success(planets)
+        // _planetsUiState.update(state)
+
     }
 
 
