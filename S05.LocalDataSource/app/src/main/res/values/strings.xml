@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Local DataSource</string>
+    <string name="preferences">Preferences</string>
+    <string name="save">Save</string>
+    <string name="name">Name</string>
+    <string name="close">Close</string>
+    <string name="dark_mode">Dark Mode</string>
+</resources>
