@@ -35,7 +35,14 @@ class NoteActivity : AppCompatActivity() {
         }
 
         binding.fabSave.setOnClickListener {
-            //TODO : Sauvegarder la note
+            val title = binding.edtTitle.text.toString()
+            val content = binding.edtNote.text.toString()
+
+            if(title.isNotBlank()) {
+                viewModel.saveNote(title, content, _color)
+            } else {
+                //TODO: Toast
+            }
 
         }
     }

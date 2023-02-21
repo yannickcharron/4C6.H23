@@ -8,16 +8,16 @@ import kotlinx.coroutines.flow.update
 
 class MainViewModel : ViewModel() {
 
-    private val noteRepository = NoteRepository()
+    //private val noteRepository = NoteRepository()
 
     private val _mainUiState = MutableStateFlow<MainUiState>(MainUiState.Empty)
     val mainUiState = _mainUiState.asStateFlow()
 
     init {
-        val notes = noteRepository.retrieveAll()
-        _mainUiState.update {
-            return@update MainUiState.Success(notes)
-        }
+//        val notes = noteRepository.retrieveAll()
+//        _mainUiState.update {
+//            return@update MainUiState.Success(notes)
+//        }
     }
 
 }
