@@ -31,6 +31,15 @@ class NoteActivity : AppCompatActivity() {
 
         binding.fabColor.setOnClickListener {
             //TODO: Dialog pour le choix de la couleur de la note
+            MaterialColorPickerDialog
+                .Builder(this)
+                .setTitle("Choisi une couleur")
+                .setColorShape(ColorShape.CIRCLE)
+                .setColorSwatch(ColorSwatch._300)
+                .setColorListener { color, colorHex ->
+                    binding.fabColor.supportBackgroundTintList = ColorStateList.valueOf(color)
+                    _color = colorHex
+                }.show()
 
         }
 
@@ -40,8 +49,9 @@ class NoteActivity : AppCompatActivity() {
 
             if(title.isNotBlank()) {
                 viewModel.saveNote(title, content, _color)
+                finish()
             } else {
-                //TODO: Toast
+                Toast.makeText(this, "Le titre de la note ne doit pas être vide.", Toast.LENGTH_LONG).show()
             }
 
         }

@@ -3,6 +3,7 @@ package ca.qc.cstj.localdatasource.presentation.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.localdatasource.databinding.ActivityMainBinding
@@ -34,8 +35,16 @@ class MainActivity : AppCompatActivity() {
             when(it) {
                 MainUiState.Empty -> Unit
                 is MainUiState.Success -> {
-                    noteRecyclerViewAdapter.notes = it.notes
+                    noteRecyclerViewAdapter.notes = it.notes.asReversed()
                     noteRecyclerViewAdapter.notifyDataSetChanged()
+
+                    val mode = if(it.userPreferences.isDarkMode) {
+                        AppCompatDelegate.MODE_NIGHT_YES
+                    } else {
+                        AppCompatDelegate.MODE_NIGHT_NO
+                    }
+                    AppCompatDelegate.setDefaultNightMode(mode)
+
                 }
             }
         }.launchIn(lifecycleScope)
