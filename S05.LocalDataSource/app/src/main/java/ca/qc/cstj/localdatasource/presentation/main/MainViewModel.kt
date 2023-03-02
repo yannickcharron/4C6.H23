@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
+
     private val noteRepository = AppDatabase.getInstance(application).noteRepository()
     private val userPreferencesRepository = UserPreferencesRepository(application)
 
@@ -45,6 +46,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     return@update MainUiState.Success(notes, preferences)
                 }
             }
+        }
+    }
+
+    fun deleteNote(note: Note) {
+        viewModelScope.launch {
+            noteRepository.delete(note)
         }
     }
 

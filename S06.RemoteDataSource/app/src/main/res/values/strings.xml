@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Recycler View</string>
+    <string name="add_planet">Add planet</string>
+</resources>

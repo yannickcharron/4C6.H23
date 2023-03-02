@@ -3,9 +3,11 @@ package ca.qc.cstj.localdatasource.presentation.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import ca.qc.cstj.localdatasource.domain.models.Note
 import com.example.localdatasource.databinding.ActivityMainBinding
 import ca.qc.cstj.localdatasource.presentation.main.adapters.NoteRecyclerViewAdapter
 import ca.qc.cstj.localdatasource.presentation.note.NoteActivity
@@ -18,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     private val viewModel : MainViewModel by viewModels()
     private lateinit var binding : ActivityMainBinding
 
-    private val noteRecyclerViewAdapter = NoteRecyclerViewAdapter()
+    private val noteRecyclerViewAdapter = NoteRecyclerViewAdapter(listOf(), ::onClickNote ,::onDeleteNote)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +59,19 @@ class MainActivity : AppCompatActivity() {
         binding.fabSettings.setOnClickListener {
             startActivity(PreferencesActivity.newIntent(this))
         }
+    }
 
+    private fun onDeleteNote(note: Note) {
+        viewModel.deleteNote(note)
+    }
+
+    private fun onClickNote(note: Note) {
+        AlertDialog.Builder(this)
+            .setTitle(note.title)
+            .setMessage(note.content)
+            .setPositiveButton("Ok") { _, _ ->
+                //Code sur le bouton Ok
+            }.create().show()
     }
 
 }

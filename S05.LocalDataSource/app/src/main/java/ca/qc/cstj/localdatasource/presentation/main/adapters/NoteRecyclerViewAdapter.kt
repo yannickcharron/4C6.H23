@@ -10,7 +10,10 @@ import ca.qc.cstj.localdatasource.domain.models.Note
 import com.example.localdatasource.R
 import com.example.localdatasource.databinding.ItemNoteBinding
 
-class NoteRecyclerViewAdapter(var notes: List<Note> = listOf()) : RecyclerView.Adapter<NoteRecyclerViewAdapter.ViewHolder>() {
+class NoteRecyclerViewAdapter(var notes: List<Note> = listOf(),
+                              private val onNoteClick: (Note) -> Unit,
+                              private val onDeleteNoteClick: (Note) -> Unit) :
+    RecyclerView.Adapter<NoteRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteRecyclerViewAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_note,parent, false)
@@ -20,6 +23,10 @@ class NoteRecyclerViewAdapter(var notes: List<Note> = listOf()) : RecyclerView.A
     override fun onBindViewHolder(holder: NoteRecyclerViewAdapter.ViewHolder, position: Int) {
         val note = notes[position]
         holder.bind(note)
+
+        holder.itemView.setOnClickListener {
+            onNoteClick(note)
+        }
     }
 
     override fun getItemCount(): Int = notes.size
@@ -29,10 +36,15 @@ class NoteRecyclerViewAdapter(var notes: List<Note> = listOf()) : RecyclerView.A
         private val binding = ItemNoteBinding.bind(view)
 
         fun bind(note: Note) {
+
             binding.txvNoteContent.text = note.content
             binding.txvTitleNote.text = note.title
             binding.imvColor.setColorFilter(Color.parseColor(note.color))
             //binding.imvColor.imageTintList = ColorStateList.valueOf(Color.parseColor(note.color))
+
+            binding.imvDelete.setOnClickListener {
+                onDeleteNoteClick(note)
+            }
         }
 
     }
