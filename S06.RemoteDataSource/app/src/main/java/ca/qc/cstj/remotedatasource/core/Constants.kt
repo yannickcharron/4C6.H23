@@ -8,4 +8,9 @@ object Constants {
         const val PLANETS = "$BASE_API/planets"
     }
 
+    object RefreshDelay {
+        const val DEFAULT = 60000L
+        const val PLANETS_LIST = 30000L
+    }
+
 }

@@ -2,6 +2,7 @@ package ca.qc.cstj.remotedatasource.presentation.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -34,12 +35,21 @@ class MainActivity : AppCompatActivity() {
         viewModel.mainUiState.onEach {
             when(it) {
                 MainUiState.Empty -> Unit
-                is MainUiState.Error -> Unit
+                is MainUiState.Error -> {
+                    Toast.makeText(this, it.exception.localizedMessage, Toast.LENGTH_SHORT).show()
+                }
                 is MainUiState.Success -> {
+                    binding.rcvPlanets.visibility = View.VISIBLE
+
                     planetRecyclerViewAdapter.planets = it.planets
                     planetRecyclerViewAdapter.notifyDataSetChanged()
+
+                    binding.pgbLoading.hide()
                 }
-                MainUiState.Loading -> Unit
+                MainUiState.Loading -> {
+                    binding.rcvPlanets.visibility = View.GONE
+                    binding.pgbLoading.show()
+                }
             }
         }.launchIn(lifecycleScope)
 

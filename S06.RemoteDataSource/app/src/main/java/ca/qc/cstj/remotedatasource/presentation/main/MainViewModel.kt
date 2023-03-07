@@ -21,7 +21,7 @@ class MainViewModel : ViewModel() {
 
     init {
         viewModelScope.launch {
-            planetRepository.retrieveAllWithoutRefresh().collect { apiResult ->
+            planetRepository.retrieveAll().collect { apiResult ->
                 _mainUiState.update {
                     when(apiResult) {
                         is ApiResult.Error -> MainUiState.Error(apiResult.throwable as Exception)
