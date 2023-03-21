@@ -1,13 +1,13 @@
-package ca.qc.cstj.meteomania
+package ca.qc.cstj.meteomania.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import ca.qc.cstj.meteomania.R
 import ca.qc.cstj.meteomania.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
