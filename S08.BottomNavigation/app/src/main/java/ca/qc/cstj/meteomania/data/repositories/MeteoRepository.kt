@@ -29,7 +29,6 @@ class MeteoRepository {
                     emit(ApiResult.Error(e))
                 }
                 delay(Constants.RefreshDelay.METEO_REFRESH)
-
             }
         }.flowOn(Dispatchers.IO)
 

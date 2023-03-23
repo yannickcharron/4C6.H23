@@ -11,6 +11,9 @@ import kotlinx.serialization.decodeFromString
 
 class MeteoDataSource : JsonDataSource(){
 
+    //1. Retourner un objet du Model
+    //2. Retourner une collection du model (List<Model>)
+
     fun retrieveOne(cityName: String) : Meteo {
 
         val serviceURL = "${Constants.URL_BASE}?q=$cityName&appid=${Constants.WEATHER_API_KEY}&units=metric"

@@ -7,4 +7,5 @@
     <string name="title_favorites">Favorites</string>
     <string name="search">Search</string>
     <string name="notAvailable">Not Available</string>
+    <string name="temperatureFormat">%.2f°c</string>
 </resources>
