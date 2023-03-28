@@ -12,12 +12,14 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import ca.qc.cstj.meteomania.R
 import ca.qc.cstj.meteomania.core.Constants
 import ca.qc.cstj.meteomania.core.text
 import ca.qc.cstj.meteomania.databinding.FragmentSearchBinding
 import ca.qc.cstj.meteomania.domain.models.Meteo
 import com.bumptech.glide.Glide
+import com.google.android.gms.maps.model.LatLng
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import java.time.Instant
@@ -30,6 +32,8 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
     private val binding: FragmentSearchBinding by viewBinding()
     private val viewModel : SearchViewModel by viewModels()
+
+    private var position : LatLng? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -63,6 +67,13 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         binding.btnSearch.setOnClickListener {
             viewModel.search(binding.tilSearch.text)
         }
+
+        binding.fabLocation.setOnClickListener {
+            if(position != null) {
+                val action = SearchFragmentDirections.actionNavigationSearchToMapsActivity(position!!)
+                findNavController().navigate(action)
+            }
+        }
     }
 
     private fun displayMeteo(meteo: Meteo) {
@@ -71,6 +82,8 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         binding.txvCity.text = meteo.city
         binding.txvTemperature.text = getString(R.string.temperatureFormat, meteo.temperature)
         binding.txvSky.text = meteo.weather
+
+        position = LatLng(meteo.latitude, meteo.longitude)
 
         //Image du drapeau du pays
         Glide.with(requireContext())
@@ -100,6 +113,5 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         ctlMainActivity.background = background
 
     }
-
 
 }

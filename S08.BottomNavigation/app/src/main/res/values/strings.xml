@@ -8,4 +8,5 @@
     <string name="search">Search</string>
     <string name="notAvailable">Not Available</string>
     <string name="temperatureFormat">%.2f°c</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

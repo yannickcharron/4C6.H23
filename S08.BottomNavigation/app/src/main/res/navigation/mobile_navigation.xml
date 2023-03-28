@@ -9,7 +9,13 @@
         android:id="@+id/navigation_search"
         android:name="ca.qc.cstj.meteomania.ui.search.SearchFragment"
         android:label="@string/title_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_navigation_search_to_mapsActivity"
+            app:destination="@id/mapsActivity"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_favorites"
@@ -22,4 +28,13 @@
         android:name="ca.qc.cstj.meteomania.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <activity
+        android:id="@+id/mapsActivity"
+        android:name="ca.qc.cstj.meteomania.ui.map.MapsActivity"
+        android:label="activity_maps"
+        tools:layout="@layout/activity_maps" >
+        <argument
+            android:name="position"
+            app:argType="com.google.android.gms.maps.model.LatLng" />
+    </activity>
 </navigation>
