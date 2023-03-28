@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_list_planet">
+
+    <fragment
+        android:id="@+id/nav_list_planet"
+        android:name="ca.qc.cstj.s09navigationdrawer.ui.planet.PlanetListFragment"
+        android:label="@string/menu_planets"
+        tools:layout="@layout/fragment_list_planets" />
+    <fragment
+        android:id="@+id/nav_elements"
+        android:name="ca.qc.cstj.s09navigationdrawer.ui.element.ElementsFragment"
+        android:label="@string/menu_elements"
+        tools:layout="@layout/fragment_elements" />
+    <fragment
+        android:id="@+id/nav_trader"
+        android:name="ca.qc.cstj.s09navigationdrawer.ui.trader.TraderFragment"
+        android:label="@string/menu_trader"
+        tools:layout="@layout/fragment_trader" />
+
+</navigation>

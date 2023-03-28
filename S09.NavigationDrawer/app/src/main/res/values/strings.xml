@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">S09 Navigation Drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_planets">Planets</string>
+    <string name="menu_elements">Elements</string>
+    <string name="menu_trader">Traders</string>
+    <string name="menu_barcode">Code QR</string>
+    <string name="menu_fun">Fun</string>
+
+    <string name="Quickie">Quickie</string>
+    <string name="zxing">ZXing</string>
+    <string name="user_canceled">User Canceled</string>
+    <string name="missing_permission">Missing Permission</string>
+    <string name="error">Error</string>
+    <string name="scan_code">Scan the code</string>
+    <string name="completed">Completed</string>
+    <string name="start">Start</string>
+    <string name="write_to_nfc">Write to NFC</string>
+
+    <string name="apiErrorMessage">Error while retriving the data from the server.</string>
+</resources>
