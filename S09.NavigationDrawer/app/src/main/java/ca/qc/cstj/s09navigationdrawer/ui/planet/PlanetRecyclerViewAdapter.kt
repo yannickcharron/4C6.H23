@@ -19,6 +19,9 @@ class PlanetRecyclerViewAdapter(
         val planet = planets[position]
         holder.bind(planet)
 
+        holder.itemView.setOnClickListener {
+            onPlanetClick(planet)
+        }
 
     }
 

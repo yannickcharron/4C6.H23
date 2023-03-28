@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import ca.qc.cstj.s09navigationdrawer.R
 import ca.qc.cstj.s09navigationdrawer.databinding.FragmentListPlanetsBinding
@@ -59,7 +60,8 @@ class PlanetListFragment : Fragment(R.layout.fragment_list_planets) {
     }
 
     private fun onRecyclerViewPlanetClick(planet: Planet) {
-        //TODO:
+        val action = PlanetListFragmentDirections.actionNavListPlanetToPlanetFragment()
+        findNavController().navigate(action)
     }
 
 
