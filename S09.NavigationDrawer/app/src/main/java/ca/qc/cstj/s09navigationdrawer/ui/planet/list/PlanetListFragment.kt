@@ -1,4 +1,4 @@
-package ca.qc.cstj.s09navigationdrawer.ui.planet
+package ca.qc.cstj.s09navigationdrawer.ui.planet.list
 
 import android.os.Bundle
 import android.view.View
@@ -55,12 +55,12 @@ class PlanetListFragment : Fragment(R.layout.fragment_list_planets) {
                     binding.pgbLoading.show()
                 }
             }
-        }.launchIn(lifecycleScope)
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
 
     }
 
     private fun onRecyclerViewPlanetClick(planet: Planet) {
-        val action = PlanetListFragmentDirections.actionNavListPlanetToPlanetFragment()
+        val action = PlanetListFragmentDirections.actionNavListPlanetToPlanetFragment(planet.href)
         findNavController().navigate(action)
     }
 

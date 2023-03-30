@@ -18,4 +18,15 @@ class PlanetDataSource : JsonDataSource() {
         }
     }
 
+    fun retrieveOne(href: String): Planet {
+        val (_, _ , result) = href.httpGet().responseJson()
+
+        return when(result) {
+            is Result.Success -> json.decodeFromString(result.value.content)
+            is Result.Failure -> throw result.error.exception
+        }
+
+    }
+
+
 }

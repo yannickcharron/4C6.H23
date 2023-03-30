@@ -1,4 +1,4 @@
-package ca.qc.cstj.s09navigationdrawer.ui.planet
+package ca.qc.cstj.s09navigationdrawer.ui.planet.list
 
 import ca.qc.cstj.s09navigationdrawer.domain.models.Planet
 
