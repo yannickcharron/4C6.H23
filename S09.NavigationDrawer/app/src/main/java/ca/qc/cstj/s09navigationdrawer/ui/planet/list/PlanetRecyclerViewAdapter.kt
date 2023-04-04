@@ -23,7 +23,6 @@ class PlanetRecyclerViewAdapter(
         holder.itemView.setOnClickListener {
             onPlanetClick(planet)
         }
-
     }
 
     override fun getItemCount() = planets.size

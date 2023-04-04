@@ -19,8 +19,10 @@
     </group>
     <group>
         <item
-            android:id="@+id/nav_qr"
+            android:id="@+id/nav_barcode"
             android:title="@string/menu_barcode" />
+        <item android:id="@+id/nav_fun"
+              android:title="@string/menu_fun" />
     </group>
 
 </menu>

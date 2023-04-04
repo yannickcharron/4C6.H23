@@ -47,7 +47,7 @@ class PlanetFragment : Fragment(R.layout.fragment_planet) {
                     (requireActivity() as AppCompatActivity).supportActionBar?.title = it.planet.name
                 }
             }
-        }.launchIn(lifecycleScope)
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
 
     }
 

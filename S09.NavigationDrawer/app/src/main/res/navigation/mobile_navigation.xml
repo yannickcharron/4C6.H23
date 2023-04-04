@@ -33,5 +33,15 @@
             android:name="href"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/nav_fun"
+        android:name="ca.qc.cstj.s09navigationdrawer.ui.other.FunFragment"
+        android:label="@string/menu_fun"
+        tools:layout="@layout/fragment_fun"/>
+    <fragment
+        android:id="@+id/nav_barcode"
+        android:name="ca.qc.cstj.s09navigationdrawer.ui.barcode.BarcodeFragment"
+        android:label="@string/menu_barcode"
+        tools:layout="@layout/fragment_barcode" />
 
 </navigation>
