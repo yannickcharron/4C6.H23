@@ -69,6 +69,9 @@ dependencies {
     //Glide chargement d'image en ligne
     implementation 'com.github.bumptech.glide:glide:4.13.0'
 
+    //https://github.com/G00fY2/quickie
+    implementation 'io.github.g00fy2.quickie:quickie-bundled:1.4.1'
+
     //https://github.com/fondesa/kpermissions
     implementation 'com.github.fondesa:kpermissions:3.4.0'
 
